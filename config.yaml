@@ -1,0 +1,25 @@
+# config.yaml — example configuration tuned for CPU / integrated GPU
+data:
+  root: "./data"            # root folder where your dataset directory (LPBlur) lives
+  dataset_name: "LPBlur"
+  img_size: 256
+
+training:
+  device: "cpu"             # "cpu" or "cuda" (use "cuda" only if you have a supported NVIDIA GPU)
+  batch_size: 1
+  num_epochs: 30
+  lr_g: 0.0002
+  lr_d: 0.0002
+  lambda_L1: 100.0
+  num_workers: 0
+  validate_every: 2
+  save_every: 5
+
+model:
+  ngf: 32                   # generator base filters (32 for CPU; use 64/128 on stronger GPUs)
+  ndf: 32                   # discriminator base filters
+
+paths:
+  checkpoints: "./outputs/checkpoints"
+  results: "./outputs/results"
+  val_results: "./outputs/val_results"
